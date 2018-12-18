@@ -1,0 +1,58 @@
+#include<cmath>
+#include<cstdio>
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	vector<pair<double,int> >v;
+	for(int i=0;i<n;i++)
+	{
+	  double a,b;
+	  cin>>a>>b;
+	  double z=a/b;
+	  v.push_back(make_pair(z,i));
+	}
+	sort(v.begin(),v.end(),greater<pair<double,int> >());
+	for(int i=0;i<v.size();i++)
+	{
+	 cout<<v[i].second<<" ";
+	}
+}
+
+
+
+
+#include<iostream>
+using namespace std;
+
+void naive_search(string t,string p)
+{
+	int f=0;
+  for(int i=0;i<=t.size()-p.size();i++)
+  {
+  	int j=0;
+  	for(;j<p.size();j++)
+  		if(t[i+j]!=p[j])
+  			break;
+  	if(j==p.size())
+  	{
+  		cout<<i;
+  		f++;
+  	}
+  }
+  if(f==0)
+    cout<<-1;
+  
+}
+int main()
+{
+	string t,p;
+  cin>>t;
+  cin>>p;
+	naive_search(t,p);
+}
+

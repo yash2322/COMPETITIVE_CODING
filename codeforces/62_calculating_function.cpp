@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+#define FORS(i,a,b) for(long long int i=a;i<b;i++)
+#define FORE(i,a,b) for(long long int i=a-1;i>=0;i--)
+using namespace std;
+int main()
+{
+long long int n;
+cin>>n;
+if(n%2==0)
+    cout<<(n/2);
+else
+    cout<<"-"<<(n/2)+1;
+}
