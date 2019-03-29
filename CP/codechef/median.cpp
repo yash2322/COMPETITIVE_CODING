@@ -8,32 +8,23 @@ cin.tie(NULL);
 //#define out_pair(a(i)) cout<<a[i].first<<" "<<cout<<a[i].second;
 using namespace std;
 typedef long long int ll;
-bool isPrime(int num)
-{
-    if(num==1)
-    return 0;
-    if(num<4)
-    return 1;
-    for(int i=2;i<=sqrt(num);i++)
-    {
-        if(num%i==0)
-        return 0;
-    }
-    return 1;
-}
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--)
-    {
-        int m,n;
-        cin>>m>>n;
-        for(int i=m;i<=n;i++)
+    ll n,counter=0,x;
+    cin>>x;
+    vector<ll>abc;
+    while(cin>>n)
+    {   
+        counter++;
+        abc.push_back(n);
+        sort(abc.begin(),abc.end());
+        if(counter%2==0)
         {
-                if(isPrime(i))
-                cout<<i<<endl;
+            
+            cout<<((abc[counter/2]+abc[(counter/2)-1])/2);
         }
-        cout<<endl;
+        else
+        cout<<abc[counter/2];
+        
     }
 }
