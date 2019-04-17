@@ -15,7 +15,6 @@ vector<vector<long int>>adj_list;
 public:
     Graph(long int vertices);
     void addEdge(long int a,long int b);
-
     void BFS(long int s);
 };
 Graph::Graph(long int vertices)
