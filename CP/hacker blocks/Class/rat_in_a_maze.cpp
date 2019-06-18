@@ -15,7 +15,7 @@ void to_reach(int start_i,int start_j,int n,int m,string osf){
 if(start_i==n&&start_j==m)
 {
     co++;
-    //cout<<osf<<endl;
+    cout<<osf<<endl;
     return;
 }
     //co+=1;

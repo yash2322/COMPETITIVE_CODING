@@ -2,12 +2,8 @@
 using namespace std;
 int main()
 {
-    while(true)
-    {
     long int result=0,current_max,i=0,top_pointer,n,input;
     cin>>n;
-    if(n==0)
-        break;
     vector<long int>v;
     for(long int j=0;j<n;j++)
     {
@@ -36,5 +32,4 @@ while(!indexes.empty())
         result=current_max;
 }
 cout<<result<<endl;
-}
 }

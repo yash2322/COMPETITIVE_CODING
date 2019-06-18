@@ -5,32 +5,28 @@
 #define FS ios_base::sync_with_stdio(false); \
 cin.tie(NULL);
 #define out(a) cout<<a;
+#define pb(a) push_back(a)
+#define pb(a,b) push_back({a,b})
 //#define out_pair(a(i)) cout<<a[i].first<<" "<<cout<<a[i].second;
 using namespace std;
-//number of ways to reach end point in matrix;
 typedef long long int ll;
 int main(){
-ll q,k,inp;
-cin>>q>>k;
-priority_queue <long long int > pq;
-
-//multiset<long long int>v;
-while(q--){
-cin>>inp;
-if(inp==1)
-{
-ll x,y;
-cin>>x>>y;
-ll d=x*x+y*y;
-if(pq.size()<k)
-    pq.push(d);
-else if(pq.top()>d){
-    pq.pop();
-    pq.push(d);
+long int n,input;
+cin>>n;
+vector<ll>a1,a2;
+FORS(i,0,n){
+    cin>>input;
+    a1.push_back(input);
 }
+FORS(i,0,n){
+    cin>>input;
+    a2.push_back(input);
 }
-else{
-    cout<<pq.top()<<endl;
+sort(a1.begin(),a1.end());
+sort(a2.begin(),a2.end());
+ll sum=0;
+FORS(i,0,n){
+sum+=abs(a1[i]-a2[i]);
 }
-}
+cout<<sum;
 }

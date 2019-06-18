@@ -11,7 +11,7 @@ using namespace std;
 typedef long long int ll;
 ll co=0;
 void to_reach(int start_i,int start_j,int n,int m,string osf){
-if(start_i==n&&start_j==m){
+if(start_i==n-1&&start_j==m-1){
     cout<<osf<<" ";
     co++;
     return;
@@ -22,6 +22,10 @@ if(start_i>n||start_j>m){
 //recur
 to_reach(start_i+1,start_j,n,m,osf+'V');
 to_reach(start_i,start_j+1,n,m,osf+'H');
+if(start_i==start_j||start_i+start_j==n-1)
+to_reach(start_i+1,start_j+1,n,m,osf+'D');
+
+
 /*
 int v,d;
 v=to_reach(start_i+1,start_j,n,m);
@@ -31,7 +35,7 @@ return v+d;
 }
 int main(){
 long int start_i=0,start_j=0,n,m;
-cin>>n>>m;
-to_reach(start_i,start_j,n-1,m-1,"");
+cin>>n;
+to_reach(start_i,start_j,n,n,"");
 cout<<endl<<co;
 }

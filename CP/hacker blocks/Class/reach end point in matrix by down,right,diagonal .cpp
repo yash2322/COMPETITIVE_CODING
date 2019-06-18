@@ -22,6 +22,8 @@ if(start_i>n||start_j>m){
 //recur
 to_reach(start_i+1,start_j,n,m,osf+'V');
 to_reach(start_i,start_j+1,n,m,osf+'H');
+//if(start_i==start_j)
+to_reach(start_i+1,start_j+1,n,m,osf+'D');
 /*
 int v,d;
 v=to_reach(start_i+1,start_j,n,m);

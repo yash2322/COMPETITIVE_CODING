@@ -21,8 +21,7 @@ for(int i=(n==0)?1:0;i<=9;i++){
     lexico(10*n+i,limit);
 }
 }
-int main()
-{
+int main(){
 ll limit;
 cin>>limit;
 lexico(0,limit);
