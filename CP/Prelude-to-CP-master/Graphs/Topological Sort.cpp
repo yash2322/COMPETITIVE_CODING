@@ -26,7 +26,6 @@ void Graph::addEdge(int a,int b){
 }
 void Graph::topologicalSortUtil(int src,vector<bool>&visited,vector<bool>&deadEnd){
     visited[src] = true;
-
     for(int i=0;i<adjL[src].size();i++){
         if(deadEnd[adjL[src][i]] && !visited[adjL[src][i]]){
             visited[adjL[src][i]]=true;
@@ -35,18 +34,17 @@ void Graph::topologicalSortUtil(int src,vector<bool>&visited,vector<bool>&deadEn
         }
         if(!visited[adjL[src][i]]){
             topologicalSortUtil(adjL[src][i],visited,deadEnd);
-            cout<<adjL[src][i]<<" "; 
+            cout<<adjL[src][i]<<" ";
             deadEnd[adjL[src][i]] = true;
             // visited[adjL[src][i]] = true;
         }
     }
-    
 }
 void Graph::topologicalSort(int src){
     vector<bool>visited(this->v,false);
     vector<bool>deadEnd(this->v,false);
     for(int i=1;i<adjL.size();i++){
-        
+
         if(adjL[i].size()==0)
             deadEnd[i] = true;
     }
@@ -56,23 +54,23 @@ void Graph::topologicalSort(int src){
             cout<<i<<" ";
         }
     }
-    
-    // Start with this node and go to deadend
-    // Remove deadend
-    // Previous node will be new deadend
+
+    /*  Start with this node and go to deadend
+         Remove deadend
+        Previous node will be new deadend  */
 
 }
 int main(int argc, char const *argv[])
 {
-    Graph g(5); 
-    g.addEdge(1, 2); 
-    g.addEdge(2, 3); 
-    g.addEdge(1, 3); 
-    g.addEdge(1, 5); 
-    // g.addEdge(2, 3); 
-    // g.addEdge(3, 1); 
+    Graph g(5);
+    g.addEdge(1, 2);
+    g.addEdge(2, 3);
+    g.addEdge(1, 3);
+    g.addEdge(1, 5);
+    // g.addEdge(2, 3);
+    // g.addEdge(3, 1);
 
-    cout<<"Graph created successfully\n";
+    //cout<<"Graph created successfully\n";
     g.topologicalSort(0);
     return 0;
 }

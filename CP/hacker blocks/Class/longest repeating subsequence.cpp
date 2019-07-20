@@ -11,24 +11,23 @@ cin.tie(NULL);
 typedef long long int ll;
 using namespace std;
 int main(){
-cout<<"yeash\n";
 string s;
 cin>>s;
-vector<vector<ll>>dp_matrix(s.length(),vector<ll>(s.length(),0));
-FORS(i,0,s.length())
-{
-    FORS(j,0,s.length())
-    cout<<dp_matrix[i][j]<<" ";
-    cout<<endl;
-}
-FORS(i,1,s.length()){
-    FORS(j,1,s.length()){
-        if(s[i]==s[j]&&i!=j)
+vector<vector<ll>>dp_matrix(s.length()+1,vector<ll>(s.length()+1,0));
+// FORS(i,0,s.length())
+// {
+//     FORS(j,0,s.length())
+//     cout<<dp_matrix[i][j]<<" ";
+//     cout<<endl;
+// }
+FORS(i,1,s.length()+1){
+    FORS(j,1,s.length()+1){
+        if(s[i-1]==s[j-1]&&i!=j)
         dp_matrix[i][j]=1+dp_matrix[i-1][j-1];
-        else{
+        else
             dp_matrix[i][j]=max(dp_matrix[i-1][j],dp_matrix[i][j-1]);
-        }
+        
 }
 }
-    cout<<dp_matrix[s.length()-1][s.length()-1];
+    cout<<dp_matrix[s.length()][s.length()];
 }
