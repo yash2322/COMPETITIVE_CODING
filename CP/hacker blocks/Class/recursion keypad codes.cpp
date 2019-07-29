@@ -23,24 +23,25 @@ void recur(string s,char output[],vector<string>maps,ll index){
         //     }
         //     cout<<" ";
         // }
-        
+
         return;
     }
      FORS(i,0,maps[s[index]-'0'].size()){
         //  if((s[index]-'0')==0)
-        //  recur(s.substr(1),output,maps,index);   
+        //  recur(s.substr(1),output,maps,index);
         //  else{
          output[index]=maps[s[index]-'0'][i];
          recur(s,output,maps,index+1);
          //}
-     }   
+     }
     }
 
 int main(){
     vector<string>maps={"#","abc","def","ghi","jkl","mno","pqrs","tuv","wx","yz"};
     string s;
     cin>>s;
-    char out[s.length()+1];out[s.length()]='\0';
+    char out[s.length()+1];
+    out[s.length()]='\0';
     recur(s,out,maps,0);
     cout<<endl<<ct;
 }
